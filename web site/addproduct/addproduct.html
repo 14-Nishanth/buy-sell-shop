@@ -1,0 +1,274 @@
+
+<head>
+    <hr>
+    <style>
+    body{
+    display: block;
+    padding: 2 10vw;
+}
+
+.logo{
+    margin: 20px auto 50px;
+}
+
+input, textarea{
+    font-weight: 500;
+}
+
+input:not(input[type="checkbox"]){
+    width: 100%;
+}
+
+textarea{
+    width: 100%;
+    height: 270px;
+    resize: none;
+    padding: 10px 20px;
+}
+
+.product-info{
+    width: 100%;
+    height: 500px;
+    display: grid;
+    grid-template-columns: .75fr 1.25fr;
+    grid-template-rows: repeat(2, 1fr);
+    grid-gap: 20px;
+    margin-bottom: 20px;
+}
+
+.product-image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    background-size: cover;
+    border-radius: 10px;
+    grid-row: span 2;
+    text-shadow: 0 0 10px #fff;
+}
+
+.text{
+    text-transform: capitalize;
+    color: #383838;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.upload-image-sec, .select-sizes{
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.text img{
+    height: 20px;
+    margin-right: 10px;
+}
+
+.upload-catalouge{
+    width: 100%;
+    margin: 20px 0;
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    grid-gap: 10px;
+}
+
+.upload-image{
+    width: 100%;
+    height: 100px;
+    background: #f5f5f5;
+    cursor: pointer;
+    background-size: cover;
+}
+
+.upload-image:hover{
+    background: rgba(0, 0, 0, 0.2);
+    background-size: cover;
+}
+
+
+.sizes{
+    margin-top: 30px;
+}
+
+.size-checkbox{
+    -webkit-appearance: none;
+    width: 100px;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid #383838;
+    cursor: pointer;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    position: relative;
+    color: #383838;
+}
+
+.size-checkbox::after{
+    content: attr(value);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 10px;
+    text-transform: uppercase;
+}
+
+.size-checkbox:checked{
+    background: #383838;
+    color: #fff;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.product-price{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+}
+
+.product-price input{
+    margin: 0;
+}
+
+.buttons{
+    margin: 20px 0 50px;
+}
+
+.btn{
+    padding: 10px 30px;
+    text-transform: capitalize;
+    color: #fff;
+    background: #383838;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    margin-right: 10px;
+    cursor: pointer;
+}
+#save-btn{
+    background: #a9a9a9;
+}
+.popup {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+/* The actual popup (appears on top) */
+.popup .popuptext {
+  visibility: hidden;
+  width: 160px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -80px;
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+/* Toggle this class when clicking on the popup container (hide and show the popup) */
+.popup .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
+}</style>
+</head>
+<body>
+    <img src="img/loader.gif" class="loader" alt="">
+    <div class="alert-box">
+        <img src="img/error.png" class="alert-img" alt="">
+        <p class="alert-msg"></p>
+    </div>
+<div class="form">
+    <label><font size="3"> product name</font></label>
+    <input type="text" id="product-name" placeholder="product name">
+    <label><font size="3">Product Detail</font></label>
+    <textarea id="des" placeholder="detail description"></textarea>
+    <div class="product-info">
+        <div class="product-image"><p class="text">product image</p></div>
+        <div class="upload-image-sec">
+            <p class="text"><img src="img/camera.png" alt="">upload image</p>
+            <div class="upload-catalouge">
+                <input type="file" class="fileupload" id="first-file-upload-btn" hidden>
+                <label for="first-file-upload-btn" class="upload-image"></label>
+                <input type="file" class="fileupload" id="second-file-upload-btn" hidden>
+                <label for="second-file-upload-btn" class="upload-image"></label>
+                <input type="file" class="fileupload" id="third-file-upload-btn" hidden>
+                <label for="third-file-upload-btn" class="upload-image"></label>
+                <input type="file" class="fileupload" id="fourth-file-upload-btn" hidden>
+                <label for="fourth-file-upload-btn" class="upload-image"></label>
+            </div>
+        </div>
+        <div class="select-sizes">
+            <p class="text">Product Type</p>
+            <div class="sizes">
+                <input type="checkbox" class="size-checkbox" id="TV" value="TV">
+                <input type="checkbox" class="size-checkbox" id="Computer" value="Computer">
+                <input type="checkbox" class="size-checkbox" id="motocycle" value="motocycle">
+                <input type="checkbox" class="size-checkbox" id="mobile" value="mobile">
+                <input type="checkbox" class="size-checkbox" id="kichen application" value="kichen application">
+                <input type="checkbox" class="size-checkbox" id="cars" value="cars">
+                <input type="checkbox" class="size-checkbox" id="other" value="other">
+            </div>
+        </div>
+    </div>
+<div align="left"><label>price</label>
+    <div class="product-price">
+        <input type="number" id="actual-price" placeholder="actual price">
+    </div>
+  <input type="checkbox" class="checkbox" id="untac" unchecked>
+    <label for="untac">price negotiation</label>
+</div>
+    <div class="product-price" align="left">
+        <label>Phone</label>
+        <input type="number" id="number" size="13">
+    </div>
+    <div class="popup">
+        <button class="btn" id="add-btn" onclick="myFunction()">add Post</button>
+        <span class="popuptext" id="myPopup">Successfully posted </span>
+    </div>
+</div>
+
+
+
+
+<script>
+// When the user clicks on div, open the popup
+function myFunction() {
+  var popup = document.getElementById("myPopup");
+  popup.classList.toggle("show");
+}
+</script>
+</body>
